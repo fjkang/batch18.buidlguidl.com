@@ -82,7 +82,7 @@ const JoshMcCoyProfile: NextPage = () => {
 
           {/* What I'm Building */}
           <div>
-            <h2 className="text-lg md:text-xl font-medium mb-3">what i&apos;m building</h2>
+            <h2 className="text-xl md:text-2xl font-medium mb-3">what i&apos;m building</h2>
             <div className="space-y-2">
               {projects.map(project => (
                 <div key={project.title}>
@@ -108,7 +108,7 @@ const JoshMcCoyProfile: NextPage = () => {
 
           {/* What I'm Playing */}
           <div>
-            <h3 className="text-lg font-medium mb-2">what i&apos;m playing</h3>
+            <h3 className="text-lg md:text-xl font-medium mb-2">what i&apos;m playing</h3>
             <div className="space-y-1 text-base md:text-lg">
               <div>• Minecraft</div>
               <div>• Baldur&apos;s Gate 3</div>
@@ -118,7 +118,7 @@ const JoshMcCoyProfile: NextPage = () => {
 
           {/* Links */}
           <div>
-            <h3 className="text-lg font-medium mb-2">links</h3>
+            <h3 className="text-lg md:text-xl font-medium mb-2">links</h3>
             <div className="flex gap-3">
               {socialLinks.map(link => {
                 const Icon = link.icon;
