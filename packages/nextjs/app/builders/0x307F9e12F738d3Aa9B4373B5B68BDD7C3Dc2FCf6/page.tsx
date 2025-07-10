@@ -1,10 +1,59 @@
-"use client";
-
 import Link from "next/link";
 import type { NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
 
 const BUILDER_ADDRESS = "0x307F9e12F738d3Aa9B4373B5B68BDD7C3Dc2FCf6" as const;
+
+const projects = [
+  {
+    href: "https://dadcantdraw.com",
+    title: "Dad Can't Draw",
+    description: "AI coloring page generator",
+    tech: "Next.js, React, Tailwind CSS • Summer 2024",
+  },
+  {
+    href: "https://rankping.com",
+    title: "Rank Ping",
+    description: "Notification tool for Google Search Console data",
+    tech: "Next.js, React, Tailwind CSS • In Development",
+  },
+  {
+    href: "https://postmole.com",
+    title: "Post Mole",
+    description: "Post scheduling/cross-posting tool",
+    tech: "Python, Flask, Pinterest API • In Development",
+  },
+  {
+    href: "https://listingbro.com",
+    title: "Listing Bro",
+    description: "Directory listing service",
+    tech: "React, Node.js, PostgreSQL • In Development",
+  },
+  {
+    href: "https://nextdaydirectory.com",
+    title: "Next Day Directory",
+    description: "Build your own directory platform in 24 hours",
+    tech: "Next.js, Supabase, Stripe • In Development",
+  },
+  {
+    href: "https://speedrunethereum.com/builders/0x307F9e12F738d3Aa9B4373B5B68BDD7C3Dc2FCf6",
+    title: "SpeedRunEthereum Challenges",
+    description: "Building dApps & learning Web3",
+    tech: "Batch 18",
+  },
+  {
+    href: null,
+    title: "[Redacted Secret App]",
+    description: null,
+    tech: "In Development",
+  },
+];
+
+const socialLinks = [
+  { href: "https://x.com/joshmccoydev", label: "X" },
+  { href: "https://discord.gg/eZ72hpDzC5", label: "Discord" },
+  { href: "https://t.me/joshmccoydev", label: "Telegram" },
+];
 
 const JoshMcCoyProfile: NextPage = () => {
   return (
@@ -34,82 +83,23 @@ const JoshMcCoyProfile: NextPage = () => {
           <div>
             <h2 className="text-lg md:text-xl font-medium mb-3">what i&apos;m building</h2>
             <div className="space-y-2">
-              <div>
-                <Link
-                  href="https://dadcantdraw.com"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  Dad Can&apos;t Draw
-                </Link>
-                <div className="text-base-content/70 text-sm">AI coloring page generator</div>
-                <div className="text-base-content/50 text-xs">Next.js, React, Tailwind CSS • Summer 2024</div>
-              </div>
-
-              <div>
-                <Link
-                  href="https://rankping.com"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  Rank Ping
-                </Link>
-                <div className="text-base-content/70 text-sm">Notification tool for Google Search Console data</div>
-                <div className="text-base-content/50 text-xs">Next.js, React, Tailwind CSS • In Development</div>
-              </div>
-
-              <div>
-                <Link
-                  href="https://postmole.com"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  Post Mole
-                </Link>
-                <div className="text-base-content/70 text-sm">Post scheduling/cross-posting tool</div>
-                <div className="text-base-content/50 text-xs">Python, Flask, Pinterest API • In Development</div>
-              </div>
-
-              <div>
-                <Link
-                  href="https://listingbro.com"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  Listing Bro
-                </Link>
-                <div className="text-base-content/70 text-sm">Directory listing service</div>
-                <div className="text-base-content/50 text-xs">React, Node.js, PostgreSQL • In Development</div>
-              </div>
-
-              <div>
-                <Link
-                  href="https://nextdaydirectory.com"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  Next Day Directory
-                </Link>
-                <div className="text-base-content/70 text-sm">Build your own directory platform in 24 hours</div>
-                <div className="text-base-content/50 text-xs">Next.js, Supabase, Stripe • In Development</div>
-              </div>
-
-              <div>
-                <Link
-                  href="https://speedrunethereum.com/builders/0x307F9e12F738d3Aa9B4373B5B68BDD7C3Dc2FCf6"
-                  target="_blank"
-                  className="font-medium text-base-content/90 hover:text-base-content"
-                >
-                  SpeedRunEthereum Challenges
-                </Link>
-                <div className="text-base-content/70 text-sm">Building dApps & learning Web3</div>
-                <div className="text-base-content/50 text-xs">Batch 18</div>
-              </div>
-
-              <div>
-                <div className="font-medium">[Redacted Secret App]</div>
-                <div className="text-base-content/50 text-xs">In Development</div>
-              </div>
+              {projects.map((project, index) => (
+                <div key={index}>
+                  {project.href ? (
+                    <Link
+                      href={project.href}
+                      target="_blank"
+                      className="font-medium text-base-content/90 hover:text-base-content"
+                    >
+                      {project.title}
+                    </Link>
+                  ) : (
+                    <div className="font-medium">{project.title}</div>
+                  )}
+                  {project.description && <div className="text-base-content/70 text-sm">{project.description}</div>}
+                  <div className="text-base-content/50 text-xs">{project.tech}</div>
+                </div>
+              ))}
             </div>
           </div>
 
@@ -127,29 +117,19 @@ const JoshMcCoyProfile: NextPage = () => {
           <div>
             <h3 className="text-lg font-medium mb-2">links</h3>
             <div className="flex gap-3 text-sm">
-              <Link
-                href="https://x.com/joshmccoydev"
-                target="_blank"
-                className="text-base-content/90 hover:text-base-content"
-              >
-                X
-              </Link>
-              <span className="text-base-content/30">|</span>
-              <Link
-                href="https://discord.gg/eZ72hpDzC5"
-                target="_blank"
-                className="text-base-content/90 hover:text-base-content"
-              >
-                Discord
-              </Link>
-              <span className="text-base-content/30">|</span>
-              <Link
-                href="https://t.me/joshmccoydev"
-                target="_blank"
-                className="text-base-content/90 hover:text-base-content"
-              >
-                Telegram
-              </Link>
+              {socialLinks.map((link, index) => (
+                <>
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    className="text-base-content/90 hover:text-base-content"
+                  >
+                    {link.label}
+                  </Link>
+                  {index < socialLinks.length - 1 && <span className="text-base-content/30">|</span>}
+                </>
+              ))}
             </div>
           </div>
 
