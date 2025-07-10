@@ -117,20 +117,19 @@ const JoshMcCoyProfile: NextPage = () => {
           {/* Links */}
           <div>
             <h3 className="text-lg font-medium mb-2">links</h3>
-            <div className="flex gap-4 text-sm">
+            <div className="flex gap-3">
               {socialLinks.map(link => {
                 const Icon = link.icon;
                 return (
-                  <div key={link.label} className="flex items-center gap-1">
-                    <Link
-                      href={link.href}
-                      target="_blank"
-                      className="text-base-content/90 hover:text-base-content flex items-center gap-1"
-                    >
-                      <Icon size={14} />
-                      {link.label}
-                    </Link>
-                  </div>
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    title={link.label}
+                    className="text-base-content/70 hover:text-base-content transition-colors"
+                  >
+                    <Icon size={20} />
+                  </Link>
                 );
               })}
             </div>
