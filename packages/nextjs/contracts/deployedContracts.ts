@@ -4,6 +4,59 @@
  */
 import { GenericContractsDeclaration } from "~~/utils/scaffold-eth/contract";
 
-const deployedContracts = {} as const;
+const deployedContracts = {
+  42161: {
+    CheckIn: {
+      address: "0x3Df66EC8759e9cD0153B02977f1f4D25453a945B",
+      abi: [
+        {
+          inputs: [
+            {
+              internalType: "address",
+              name: "_batchRegistry",
+              type: "address",
+            },
+          ],
+          stateMutability: "payable",
+          type: "constructor",
+        },
+        {
+          inputs: [],
+          name: "batchRegistry",
+          outputs: [
+            {
+              internalType: "contract BatchRegistry",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "checkMeIn",
+          outputs: [],
+          stateMutability: "nonpayable",
+          type: "function",
+        },
+        {
+          inputs: [],
+          name: "owner",
+          outputs: [
+            {
+              internalType: "address",
+              name: "",
+              type: "address",
+            },
+          ],
+          stateMutability: "view",
+          type: "function",
+        },
+      ],
+      inheritedFunctions: {},
+    },
+  },
+} as const;
 
 export default deployedContracts satisfies GenericContractsDeclaration;
