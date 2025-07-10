@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
@@ -118,17 +119,12 @@ const JoshMcCoyProfile: NextPage = () => {
             <h3 className="text-lg font-medium mb-2">links</h3>
             <div className="flex gap-3 text-sm">
               {socialLinks.map((link, index) => (
-                <>
-                  <Link
-                    key={link.label}
-                    href={link.href}
-                    target="_blank"
-                    className="text-base-content/90 hover:text-base-content"
-                  >
+                <React.Fragment key={link.label}>
+                  <Link href={link.href} target="_blank" className="text-base-content/90 hover:text-base-content">
                     {link.label}
                   </Link>
                   {index < socialLinks.length - 1 && <span className="text-base-content/30">|</span>}
-                </>
+                </React.Fragment>
               ))}
             </div>
           </div>
