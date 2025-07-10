@@ -76,7 +76,7 @@ const JoshMcCoyProfile: NextPage = () => {
 
           {/* Address */}
           <div className="border-t border-base-300 pt-4">
-            <div className="text-sm text-base-content/60 mb-2">my wallet</div>
+            <div className="text-base md:text-lg text-base-content/60 mb-2">my wallet</div>
             <Address address={BUILDER_ADDRESS} format="long" />
           </div>
 
@@ -97,8 +97,10 @@ const JoshMcCoyProfile: NextPage = () => {
                   ) : (
                     <div className="font-medium">{project.title}</div>
                   )}
-                  {project.description && <div className="text-base-content/70 text-sm">{project.description}</div>}
-                  <div className="text-base-content/50 text-xs">{project.tech}</div>
+                  {project.description && (
+                    <div className="text-base-content/70 text-base md:text-lg">{project.description}</div>
+                  )}
+                  <div className="text-base-content/50 text-base md:text-lg">{project.tech}</div>
                 </div>
               ))}
             </div>
@@ -107,7 +109,7 @@ const JoshMcCoyProfile: NextPage = () => {
           {/* What I'm Playing */}
           <div>
             <h3 className="text-lg font-medium mb-2">what i&apos;m playing</h3>
-            <div className="space-y-1 text-sm">
+            <div className="space-y-1 text-base md:text-lg">
               <div>• Minecraft</div>
               <div>• Baldur&apos;s Gate 3</div>
               <div>• Death Stranding</div>
@@ -137,7 +139,9 @@ const JoshMcCoyProfile: NextPage = () => {
 
           {/* Footer */}
           <div className="border-t border-base-300 pt-4 mt-8">
-            <div className="text-xs text-base-content/50">🏗️ built with scaffold-eth 2 • proudly part of batch 18</div>
+            <div className="text-base md:text-lg text-base-content/50">
+              🏗️ built with scaffold-eth 2 • proudly part of batch 18
+            </div>
           </div>
         </div>
       </div>
