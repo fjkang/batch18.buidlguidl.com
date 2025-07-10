@@ -1,6 +1,6 @@
-import React from "react";
 import Link from "next/link";
 import type { NextPage } from "next";
+import { SiDiscord, SiTelegram, SiX } from "react-icons/si";
 import { Address } from "~~/components/scaffold-eth";
 
 const BUILDER_ADDRESS = "0x307F9e12F738d3Aa9B4373B5B68BDD7C3Dc2FCf6" as const;
@@ -51,15 +51,15 @@ const projects = [
 ];
 
 const socialLinks = [
-  { href: "https://x.com/joshmccoydev", label: "X" },
-  { href: "https://discord.gg/eZ72hpDzC5", label: "Discord" },
-  { href: "https://t.me/joshmccoydev", label: "Telegram" },
+  { href: "https://x.com/joshmccoydev", label: "X", icon: SiX },
+  { href: "https://discord.gg/eZ72hpDzC5", label: "Discord", icon: SiDiscord },
+  { href: "https://t.me/joshmccoydev", label: "Telegram", icon: SiTelegram },
 ];
 
 const JoshMcCoyProfile: NextPage = () => {
   return (
     <div className="min-h-screen bg-base-100">
-      <div className="px-4 py-8 md:px-8 md:py-16 max-w-sm md:max-w-md">
+      <div className="px-4 py-8 md:px-8 md:py-16 max-w-sm md:max-w-2xl lg:max-w-3xl md:mx-auto">
         <div className="space-y-6 text-base-content">
           {/* Header */}
           <div>
@@ -84,8 +84,8 @@ const JoshMcCoyProfile: NextPage = () => {
           <div>
             <h2 className="text-lg md:text-xl font-medium mb-3">what i&apos;m building</h2>
             <div className="space-y-2">
-              {projects.map((project, index) => (
-                <div key={index}>
+              {projects.map(project => (
+                <div key={project.title}>
                   {project.href ? (
                     <Link
                       href={project.href}
@@ -117,15 +117,22 @@ const JoshMcCoyProfile: NextPage = () => {
           {/* Links */}
           <div>
             <h3 className="text-lg font-medium mb-2">links</h3>
-            <div className="flex gap-3 text-sm">
-              {socialLinks.map((link, index) => (
-                <React.Fragment key={link.label}>
-                  <Link href={link.href} target="_blank" className="text-base-content/90 hover:text-base-content">
-                    {link.label}
-                  </Link>
-                  {index < socialLinks.length - 1 && <span className="text-base-content/30">|</span>}
-                </React.Fragment>
-              ))}
+            <div className="flex gap-4 text-sm">
+              {socialLinks.map(link => {
+                const Icon = link.icon;
+                return (
+                  <div key={link.label} className="flex items-center gap-1">
+                    <Link
+                      href={link.href}
+                      target="_blank"
+                      className="text-base-content/90 hover:text-base-content flex items-center gap-1"
+                    >
+                      <Icon size={14} />
+                      {link.label}
+                    </Link>
+                  </div>
+                );
+              })}
             </div>
           </div>
 
