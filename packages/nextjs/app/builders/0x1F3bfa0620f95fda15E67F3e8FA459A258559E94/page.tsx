@@ -1,8 +1,7 @@
-"use client";
-
 import Image from "next/image";
+import { NextPage } from "next";
 
-export default function PersonalWebsite() {
+const AriiellusWebsite: NextPage = () => {
   return (
     <div className="w-full max-w-2xl mx-auto my-5 px-5 relative bg-base-100 text-base-content min-h-screen">
       {/* Skills and Interests Section */}
@@ -163,4 +162,6 @@ export default function PersonalWebsite() {
       </div>
     </div>
   );
-}
+};
+
+export default AriiellusWebsite;
