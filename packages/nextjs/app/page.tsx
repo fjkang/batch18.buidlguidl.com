@@ -2,9 +2,25 @@
 
 import Link from "next/link";
 import type { NextPage } from "next";
+import { zeroAddress } from "viem";
+import { useAccount } from "wagmi";
 import { BugAntIcon, MagnifyingGlassIcon } from "@heroicons/react/24/outline";
+import { useScaffoldReadContract } from "~~/hooks/scaffold-eth";
 
 const Home: NextPage = () => {
+  const { address: connectedAddress } = useAccount();
+
+  const { data: isMemberOfBatch } = useScaffoldReadContract({
+    contractName: "BatchRegistry",
+    functionName: "allowList",
+    args: [connectedAddress],
+  });
+
+  const { data: contractAddress } = useScaffoldReadContract({
+    contractName: "BatchRegistry",
+    functionName: "yourContractAddress",
+    args: [connectedAddress],
+  });
   return (
     <>
       <div className="flex items-center flex-col grow pt-10">
@@ -17,6 +33,14 @@ const Home: NextPage = () => {
           <p className="text-lg flex gap-2 justify-center">
             <span className="font-bold">Checked in builders count:</span>
             <span>To Be Implemented</span>
+          </p>
+          <p className="text-lg flex gap-2 justify-center">
+            <span className="font-bold">Are you a member of Batch #18 ?</span>
+            <span>{isMemberOfBatch ? "✅" : "❌"}</span>
+          </p>
+          <p className="text-lg flex gap-2 justify-center">
+            <span className="font-bold">Did you checked in ?</span>
+            <span>{connectedAddress && contractAddress != zeroAddress ? "✅" : "❌"}</span>
           </p>
         </div>
 
