@@ -19,13 +19,13 @@ const KongPage: NextPage = () => {
             className="rounded-full mb-4"
           />
           <span className="text-2xl font-bold mb-2">My name is Kong</span>
-          {/* 添加欢迎语和地址 */}
+          {/* Add a welcome message and address */}
           <span className="text-2xl font-bold mb-2">Welcome to my page!</span>
           <span className="text-lg mb-4">This is my personal page on Batch #18.</span>
-          {/* 使用 Address 组件显示地址 */}
+          {/* Use the Address component to display the address */}
           <span className="text-lg font-bold">My Ethereum Address:</span>
           <Address address="0x7f6Ba565e35BB23C307992feBD841D5b2d8c8011" onlyEnsOrAddress />
-          {/* 添加关于我的信息和联系方式 */}
+          {/* Add information about me and contact details */}
           <div className="text-2xl font-bold mt-3 mb-3">About Me</div>
           <span className="text-xl max-w-fit font-bold mb-4 mt-2 pr-20 pl-20">
             I am a backend development engineer with 5 years of work experience, specializing in Java and Python for web
@@ -37,7 +37,7 @@ const KongPage: NextPage = () => {
           </span>
           <div className="text-2xl font-bold mt-3 mb-3">Contact Me</div>
           <div className="flex">
-            {/* 添加社交媒体链接 */}
+            {/* Add social media links */}
             <span className="text-lg font-bold pl-20 pr-20">
               <Link href="https://github.com/fjkang" target="_blank">
                 <SiGithub className="w-10 h-10" />
