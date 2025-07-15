@@ -2,7 +2,7 @@ import Link from "next/link";
 import type { NextPage } from "next";
 import { Address } from "~~/components/scaffold-eth";
 
-const Home: NextPage = () => {
+const KongPage: NextPage = () => {
   return (
     <>
       <div className="flex items-center flex-col grow pt-10">
@@ -114,4 +114,4 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home;
+export default KongPage;
